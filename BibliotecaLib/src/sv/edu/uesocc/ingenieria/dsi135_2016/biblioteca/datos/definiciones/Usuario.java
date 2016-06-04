@@ -6,6 +6,7 @@
 package sv.edu.uesocc.ingenieria.dsi135_2016.biblioteca.datos.definiciones;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -60,6 +61,8 @@ public class Usuario implements Serializable {
     private String dui;
     @Column(name = "nie")
     private Integer nie;
+    @Column(name = "fecha_nacimiento")
+    private Date fechaNacimiento;
     @JoinColumn(name = "id_tipo_usuario", referencedColumnName = "id_tipo_usuario", nullable = false)
     @ManyToOne(optional = false)
     private TipoUsuario idTipoUsuario;
@@ -183,6 +186,14 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "sv.edu.uesocc.ingenieria.dsi135_2016.biblioteca.datos.definiciones.Usuario[ usuario=" + usuario + " ]";
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
     
 }
