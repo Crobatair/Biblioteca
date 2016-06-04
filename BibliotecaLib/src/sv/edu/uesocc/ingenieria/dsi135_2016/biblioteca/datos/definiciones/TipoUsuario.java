@@ -43,8 +43,8 @@ public class TipoUsuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "nombre", nullable = false, length = 255)
     private String nombre;
-    @Column(name = "descripcion")
-    private Short descripcion;
+    @Column(name = "descripcion", length = 2147483647)
+    private String descripcion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTipoUsuario")
     private List<Usuario> usuarioList;
 
@@ -76,11 +76,11 @@ public class TipoUsuario implements Serializable {
         this.nombre = nombre;
     }
 
-    public Short getDescripcion() {
+    public String getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(Short descripcion) {
+    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
